@@ -28,7 +28,7 @@ public class StatsClient {
             return getStatsWithUri(start, end, uris, unique);
         }
     }
-//TODO
+
     private Flux<StatsResponseDto> getStatsWithUri(String start, String end, String[] uris, String unique) {
         Optional<String> uniqueOpt = Optional.ofNullable(unique);
         return client.get()
