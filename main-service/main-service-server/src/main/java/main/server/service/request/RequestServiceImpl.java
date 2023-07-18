@@ -14,7 +14,7 @@ import main.server.model.event.Event;
 import main.server.model.event.EventStatus;
 import main.server.model.request.Request;
 import main.server.model.request.RequestStatus;
-import main.server.model.request.QParticipationRequest;
+import main.server.model.request.QRequest;
 import main.server.repo.event.EventRepo;
 import main.server.repo.request.RequestRepo;
 import main.server.repo.user.UserRepo;
