@@ -11,6 +11,6 @@ import javax.validation.constraints.NotBlank;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class NewCategoryDto {
     @NotBlank
-    @Length(max = 32)
+    @Length(max = 50)
     String name;
 }

@@ -8,11 +8,11 @@ import org.hibernate.validator.constraints.Length;
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UpdateEventRequest {
-    @Length(max = 64)
+    @Length(min = 3, max = 120)
     String title;
-    @Length(max = 4096)
+    @Length(min = 20, max = 7000)
     String description;
-    @Length(max = 1024)
+    @Length(min = 20, max = 2000)
     String annotation;
     String eventDate;
     Integer category;

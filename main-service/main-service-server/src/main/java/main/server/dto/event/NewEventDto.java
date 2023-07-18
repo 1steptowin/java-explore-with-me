@@ -11,13 +11,13 @@ import javax.validation.constraints.NotBlank;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class NewEventDto {
     @NotBlank
-    @Length(max = 64)
+    @Length(min = 3, max = 120)
     String title;
     @NotBlank
-    @Length(max = 4096)
+    @Length(min = 20, max = 7000)
     String description;
     @NotBlank
-    @Length(max = 1024)
+    @Length(min = 20, max = 2000)
     String annotation;
     String eventDate;
     Integer category;

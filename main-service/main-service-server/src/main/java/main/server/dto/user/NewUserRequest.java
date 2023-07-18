@@ -12,10 +12,10 @@ import javax.validation.constraints.NotBlank;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class NewUserRequest {
     @NotBlank
-    @Length(min = 2, max = 32)
+    @Length(min = 2, max = 250)
     String name;
     @Email
     @NotBlank
-    @Length(min = 4, max = 64)
+    @Length(min = 6, max = 254)
     String email;
 }
