@@ -223,7 +223,7 @@ public class EventServiceImpl implements EventService {
 
     private List<Request> makeListOfRequestsToBeUpdated(Long eventId,
                                                                      EventStatusUpdateRequest request) {
-        QRequest qRequest = QRequest.Request;
+        QRequest qRequest = QRequest.request;
         BooleanExpression exp = qRequest.event.eventId.eq(eventId)
                 .and(qRequest.requestId.in(request.getRequestIds()));
         return StreamSupport.stream(requestRepo.findAll(exp).spliterator(), false)
