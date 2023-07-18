@@ -72,7 +72,7 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public List<RequestDto> getUsersRequests(Long userId) {
-        QRequest qRequest = QRequest.participationRequest;
+        QRequest qRequest = QRequest.Request;
         BooleanExpression byRequesterId = qRequest.requester.userId.eq(userId);
         return StreamSupport.stream(requestRepo.findAll(byRequesterId).spliterator(), false)
                 .map(RequestMapper::mapModelToDto)
