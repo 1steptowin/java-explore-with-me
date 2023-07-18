@@ -6,10 +6,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@ComponentScan("ewm/server")
+@ComponentScan("main/server")
 @EnableJpaRepositories
 @EnableTransactionManagement
-@EntityScan("ewm/server")
+@EntityScan("main/server")
 public class MainServiceServerApp {
     public static void main(String[] args) {
         SpringApplication.run(MainServiceServerApp.class, args);
