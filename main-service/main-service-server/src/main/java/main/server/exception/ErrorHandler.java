@@ -27,6 +27,7 @@ public class ErrorHandler {
         log.error(e.getMessage());
         return Error.builder()
                 .error(e.getMessage())
+                .status(HttpStatus.NOT_FOUND)
                 .build();
     }
 
@@ -39,6 +40,7 @@ public class ErrorHandler {
         log.error(e.getMessage());
         return Error.builder()
                 .error(e.getMessage())
+                .status(HttpStatus.CONFLICT)
                 .build();
     }
 
@@ -48,6 +50,7 @@ public class ErrorHandler {
         log.error(e.getMessage());
         return Error.builder()
                 .error(e.getMessage())
+                .status(HttpStatus.CONFLICT)
                 .build();
     }
 
@@ -57,6 +60,7 @@ public class ErrorHandler {
         log.error(e.getMessage());
         return Error.builder()
                 .error(e.getMessage())
+                .status(HttpStatus.BAD_REQUEST)
                 .build();
     }
 }
