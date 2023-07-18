@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 @Service
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     UserRepo userRepo;
 
     @Autowired

@@ -33,7 +33,6 @@ import main.server.repo.request.RequestRepo;
 import main.server.repo.user.UserRepo;
 import lombok.RequiredArgsConstructor;
 import main.server.service.EWMPageRequest;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import stats.client.StatsClient;
@@ -51,8 +50,7 @@ import java.util.stream.StreamSupport;
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class EventServiceImpl implements EventService {
-    @Value("${date-time.format}")
-    String dateTimePattern;
+    String dateTimePattern = "yyyy-MM-dd HH:mm:ss";
     UserRepo userRepo;
     CategoryRepo categoryRepo;
     EventRepo eventRepo;

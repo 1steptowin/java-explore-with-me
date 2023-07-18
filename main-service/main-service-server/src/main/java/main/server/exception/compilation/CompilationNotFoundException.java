@@ -1,6 +1,6 @@
 package main.server.exception.compilation;
 
-public class CompilationNotFoundException extends RuntimeException{
+public class CompilationNotFoundException extends RuntimeException {
     public CompilationNotFoundException(final String message) {
         super(message);
     }

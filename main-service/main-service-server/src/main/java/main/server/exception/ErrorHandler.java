@@ -29,6 +29,7 @@ public class ErrorHandler {
                 .error(e.getMessage())
                 .build();
     }
+
     @ExceptionHandler({
             IllegalPublicationException.class,
             IllegalRequestException.class
@@ -40,6 +41,7 @@ public class ErrorHandler {
                 .error(e.getMessage())
                 .build();
     }
+
     @ExceptionHandler
     @ResponseStatus(HttpStatus.CONFLICT)
     public Error handleUniqueConstraintViolation(final DataIntegrityViolationException e) {
