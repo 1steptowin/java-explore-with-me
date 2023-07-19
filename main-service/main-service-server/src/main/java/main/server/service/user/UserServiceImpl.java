@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
 
     private void checkIfUserNotExists(Long userId) {
         if (userRepo.findById(userId).isEmpty()) {
-            throw new UserNotFoundException(String.format("User %d not found", userId);
+            throw new UserNotFoundException(String.format("User %d not found", userId));
         }
     }
 
