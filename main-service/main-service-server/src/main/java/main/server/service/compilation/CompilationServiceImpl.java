@@ -47,7 +47,7 @@ public class CompilationServiceImpl implements CompilationService {
     @Override
     public CompilationDto updateCompilation(Long compId, UpdateCompilationRequest request) {
         Compilation update = compilationRepo.findById(compId).orElseThrow(() -> {
-            throw new CompilationNotFoundException("Compilation does not exist");
+            throw new CompilationNotFoundException(String.format("Compilation %d does not exist", compId));
         });
         if (request.getTitle() != null) {
             update.setTitle(request.getTitle());
@@ -65,7 +65,7 @@ public class CompilationServiceImpl implements CompilationService {
     @Override
     public CompilationDto getCompilationById(Long compId) {
         Compilation compilationFound = compilationRepo.findById(compId).orElseThrow(() -> {
-            throw new CompilationNotFoundException("Compilation does not exist");
+            throw new CompilationNotFoundException(String.format("Compilation %d does not exist", compId));
         });
         return CompilationMapper.mapModelToDto(compilationFound, statsClient);
     }

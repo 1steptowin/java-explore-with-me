@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 @Data
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Error {
+public class ResponseException {
     HttpStatus status;
     String error;
 }

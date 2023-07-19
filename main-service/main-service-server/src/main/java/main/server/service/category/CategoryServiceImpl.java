@@ -36,7 +36,7 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public CategoryDto updateCategory(Long catId, CategoryDto inputCategory) {
         Category category = categoryRepo.findById(catId).orElseThrow(() -> {
-            throw new CategoryNotFoundException("Category does not exist");
+            throw new CategoryNotFoundException(String.format("Category %d does not exist", catId));
         });
         category.setName(inputCategory.getName());
         return CategoryMapper.mapModelToDto(categoryRepo.save(category));
@@ -64,7 +64,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     private void checkIfCategoryNotExists(Long catId) {
         if (categoryRepo.findById(catId).isEmpty()) {
-            throw new CategoryNotFoundException("Category does not exist");
+            throw new CategoryNotFoundException(String.format("Category %d does not exist", catId));
         }
     }
 }

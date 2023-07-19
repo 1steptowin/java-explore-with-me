@@ -42,12 +42,12 @@ public class RequestServiceImpl implements RequestService {
         checkIfInitiatorIsCreatingRequest(userId, eventId);
         Request newRequest = new Request();
         Event eventFound = eventRepo.findById(eventId).orElseThrow(() -> {
-            throw new EventNotFoundException("Event does not exist");
+            throw new EventNotFoundException(String.format("Event %d does not exist", eventId));
         });
         checkIfEventIsPublished(eventFound);
         checkIfParticipantLimitIsFull(eventFound);
         newRequest.setRequester(userRepo.findById(userId).orElseThrow(() -> {
-            throw new UserNotFoundException("User does not exist");
+            throw new UserNotFoundException(String.format("User %d does not exist", userId));
         }));
         newRequest.setEvent(eventFound);
         if (eventFound.getParticipationLimit() == 0 || !eventFound.getRequestModeration()) {
@@ -64,7 +64,7 @@ public class RequestServiceImpl implements RequestService {
     public RequestDto cancelOwnRequest(Long userId, Long requestId) {
         checkIfUserExists(userId);
         Request canceled = requestRepo.findById(requestId).orElseThrow(() -> {
-            throw new RequestNotFoundException("Request does not exist");
+            throw new RequestNotFoundException(String.format("Request %d does not exist", requestId));
         });
         canceled.setRequestStatus(RequestStatus.CANCELED);
         return RequestMapper.mapModelToDto(requestRepo.save(canceled));
@@ -81,7 +81,7 @@ public class RequestServiceImpl implements RequestService {
 
     private void checkIfUserExists(Long userId) {
         userRepo.findById(userId).orElseThrow(() -> {
-            throw new UserNotFoundException("User does not exist");
+            throw new UserNotFoundException(String.format("User %d does not exist", userId));
         });
     }
 

@@ -141,7 +141,7 @@ public class EventServiceImpl implements EventService {
     public EventDto getEventByIdPublic(Long id) {
         Event eventFound = eventRepo.findByEventIdAndEventStatus(id, EventStatus.PUBLISHED)
                 .orElseThrow(() -> {
-                    throw new EventNotFoundException("Event not found");
+                    throw new EventNotFoundException(String.format("Event %d not found", id));
                 });
         return EventMapper.mapModelToFullDto(eventFound, statsClient);
     }
@@ -151,7 +151,7 @@ public class EventServiceImpl implements EventService {
         checkIfUserExists(userId);
         Event eventFound = eventRepo.findById(eventId)
                 .orElseThrow(() -> {
-                    throw new EventNotFoundException("Event not found");
+                    throw new EventNotFoundException(String.format("Event %d not found", eventId));
                 });
         return EventMapper.mapModelToFullDto(eventFound, statsClient);
     }
@@ -183,7 +183,7 @@ public class EventServiceImpl implements EventService {
     public List<RequestDto> getRequestsToUsersEvent(Long userId, Long eventId) {
         checkIfUserExists(userId);
         Event eventFound = eventRepo.findById(eventId).orElseThrow(() -> {
-            throw new EventNotFoundException("Event not found");
+            throw new EventNotFoundException(String.format("Event %d not found", eventId));
         });
         return eventFound.getRequests().stream().map(RequestMapper::mapModelToDto).collect(Collectors.toList());
     }
@@ -293,25 +293,25 @@ public class EventServiceImpl implements EventService {
 
     private Category getCategory(Integer categoryId) {
         return categoryRepo.findById(categoryId.longValue()).orElseThrow(() -> {
-            throw new CategoryNotFoundException("Category does not exist");
+            throw new CategoryNotFoundException(String.format("Category %d does not exist", categoryId));
         });
     }
 
     private User getInitiator(Long userId) {
         return userRepo.findById(userId).orElseThrow(() -> {
-            throw new UserNotFoundException("User does not exist");
+            throw new UserNotFoundException(String.format("User %d does not exist", userId));
         });
     }
 
     private Event getEvent(Long eventId) {
         return eventRepo.findById(eventId).orElseThrow(() -> {
-            throw new EventNotFoundException("Event does not exist");
+            throw new EventNotFoundException(String.format("Event %d does not exist", eventId));
         });
     }
 
     private void checkIfUserExists(Long userId) {
         if (!userRepo.existsById(userId)) {
-            throw new UserNotFoundException("User does not exist");
+            throw new UserNotFoundException(String.format("User %d does not exist", userId));
         }
     }
 

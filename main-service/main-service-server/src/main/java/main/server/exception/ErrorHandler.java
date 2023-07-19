@@ -23,9 +23,9 @@ public class ErrorHandler {
             CompilationNotFoundException.class
     })
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public Error handleNotFoundExceptions(final RuntimeException e) {
+    public ResponseException handleNotFoundExceptions(final RuntimeException e) {
         log.error(e.getMessage());
-        return Error.builder()
+        return ResponseException.builder()
                 .error(e.getMessage())
                 .status(HttpStatus.NOT_FOUND)
                 .build();
@@ -36,9 +36,9 @@ public class ErrorHandler {
             IllegalRequestException.class
     })
     @ResponseStatus(HttpStatus.CONFLICT)
-    public Error handeConflicts(final RuntimeException e) {
+    public ResponseException handeConflicts(final RuntimeException e) {
         log.error(e.getMessage());
-        return Error.builder()
+        return ResponseException.builder()
                 .error(e.getMessage())
                 .status(HttpStatus.CONFLICT)
                 .build();
@@ -46,9 +46,9 @@ public class ErrorHandler {
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.CONFLICT)
-    public Error handleUniqueConstraintViolation(final DataIntegrityViolationException e) {
+    public ResponseException handleUniqueConstraintViolation(final DataIntegrityViolationException e) {
         log.error(e.getMessage());
-        return Error.builder()
+        return ResponseException.builder()
                 .error(e.getMessage())
                 .status(HttpStatus.CONFLICT)
                 .build();
@@ -56,9 +56,9 @@ public class ErrorHandler {
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Error handleException(final Exception e) {
+    public ResponseException handleException(final Exception e) {
         log.error(e.getMessage());
-        return Error.builder()
+        return ResponseException.builder()
                 .error(e.getMessage())
                 .status(HttpStatus.BAD_REQUEST)
                 .build();
