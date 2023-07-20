@@ -1,11 +1,11 @@
 package main.server.model.featureLocation;
 
 public class TableAndColumnsNames {
-    final static String tableName = "feature_locations";
-    final static String locationIdColumnName = "location_id";
-    final static String nameColumnName = "name";
-    final static String latitudeColumnName = "latitude";
-    final static String longitudeColumnName = "longitude";
-    final static String radiusColumnName = "radius";
-    final static String defualtSchema = "public";
+    static final String tableName = "feature_locations";
+    static final String locationIdColumnName = "location_id";
+    static final String nameColumnName = "name";
+    static final String latitudeColumnName = "latitude";
+    static final String longitudeColumnName = "longitude";
+    static final String radiusColumnName = "radius";
+    static final String defualtSchema = "public";
 }
