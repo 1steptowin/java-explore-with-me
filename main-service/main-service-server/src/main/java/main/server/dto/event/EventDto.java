@@ -1,7 +1,6 @@
 package main.server.dto.event;
 
 import main.server.dto.category.CategoryDto;
-import main.server.dto.location.LocationDto;
 import main.server.dto.user.UserShortDto;
 import main.server.model.event.EventStatus;
 import lombok.AccessLevel;
@@ -21,7 +20,7 @@ public class EventDto {
     String description;
     String eventDate;
     UserShortDto initiator;
-    LocationDto location;
+    EventLocationDto location;
     Boolean paid;
     int participantLimit;
     String publishedOn;

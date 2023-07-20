@@ -6,7 +6,6 @@ import com.querydsl.core.types.dsl.Expressions;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
 import main.server.dto.event.*;
-import main.server.dto.location.LocationDto;
 import main.server.dto.request.RequestDto;
 import main.server.exception.category.CategoryNotFoundException;
 import main.server.exception.event.EventNotFoundException;
@@ -16,20 +15,20 @@ import main.server.exception.event.UnknownActionException;
 import main.server.exception.request.IllegalRequestException;
 import main.server.exception.user.UserNotFoundException;
 import main.server.mapper.event.EventMapper;
-import main.server.mapper.location.LocationMapper;
+import main.server.mapper.event.EventLocationMapper;
 import main.server.mapper.request.RequestMapper;
 import main.server.model.category.Category;
 import main.server.model.event.Event;
 import main.server.model.event.EventStatus;
-import main.server.model.location.Location;
+import main.server.model.event.EventLocation;
 import main.server.model.event.QEvent;
 import main.server.model.request.Request;
 import main.server.model.request.RequestStatus;
 import main.server.model.request.QRequest;
 import main.server.model.user.User;
 import main.server.repo.category.CategoryRepo;
+import main.server.repo.event.EventLocationRepo;
 import main.server.repo.event.EventRepo;
-import main.server.repo.location.LocationRepo;
 import main.server.repo.request.RequestRepo;
 import main.server.repo.user.UserRepo;
 import lombok.RequiredArgsConstructor;
@@ -55,7 +54,7 @@ public class EventServiceImpl implements EventService {
     UserRepo userRepo;
     CategoryRepo categoryRepo;
     EventRepo eventRepo;
-    LocationRepo locationRepo;
+    EventLocationRepo locationRepo;
     RequestRepo requestRepo;
     StatsClient statsClient;
 
@@ -288,8 +287,8 @@ public class EventServiceImpl implements EventService {
         }
     }
 
-    private Location saveLocation(LocationDto locationDto) {
-        return locationRepo.save(LocationMapper.mapDtoToModel(locationDto));
+    private EventLocation saveLocation(EventLocationDto locationDto) {
+        return locationRepo.save(EventLocationMapper.mapDtoToModel(locationDto));
     }
 
     private Category getCategory(Integer categoryId) {

@@ -2,7 +2,7 @@ package main.server.model.event;
 
 import main.server.model.category.Category;
 import main.server.model.compilation.Compilation;
-import main.server.model.location.Location;
+import main.server.model.event.EventLocation;
 import main.server.model.request.Request;
 import main.server.model.user.User;
 import lombok.AccessLevel;
@@ -51,7 +51,7 @@ public class Event {
     EventStatus eventStatus;
     @OneToOne
     @JoinColumn(name = "location_id", referencedColumnName = "location_id")
-    Location location;
+    EventLocation location;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     User initiator;
