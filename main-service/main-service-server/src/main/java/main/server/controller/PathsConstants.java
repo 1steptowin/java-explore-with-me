@@ -20,4 +20,7 @@ public class PathsConstants {
     static final String CANCEL_OWN_REQUEST_PATH = "/{requestId}/cancel";
     static final String USER_ADMIN_PATH = "/admin/users";
     static final String USER_ADMIN_BY_ID_PATH = "/{userId}";
+    static final String LOCATION_ADMIN_PATH = "/admin/locations";
+    static final String LOCATION_PRIVATE_PATH = "/users/{userId}/locations";
+    static final String LOCATION_PUBLIC_PATH = "/locations/{locationId}";
 }

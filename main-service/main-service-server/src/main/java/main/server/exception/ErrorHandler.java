@@ -4,6 +4,7 @@ import main.server.exception.category.CategoryNotFoundException;
 import main.server.exception.compilation.CompilationNotFoundException;
 import main.server.exception.event.EventNotFoundException;
 import main.server.exception.event.IllegalPublicationException;
+import main.server.exception.location.LocationNotFoundException;
 import main.server.exception.request.IllegalRequestException;
 import main.server.exception.user.UserNotFoundException;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +21,8 @@ public class ErrorHandler {
             UserNotFoundException.class,
             CategoryNotFoundException.class,
             EventNotFoundException.class,
-            CompilationNotFoundException.class
+            CompilationNotFoundException.class,
+            LocationNotFoundException.class
     })
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseException handleNotFoundExceptions(final RuntimeException e) {
