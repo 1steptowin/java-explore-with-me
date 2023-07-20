@@ -29,7 +29,7 @@ import main.server.model.request.QRequest;
 import main.server.model.user.User;
 import main.server.repo.category.CategoryRepo;
 import main.server.repo.event.EventRepo;
-import main.server.repo.event.LocationRepo;
+import main.server.repo.location.LocationRepo;
 import main.server.repo.request.RequestRepo;
 import main.server.repo.user.UserRepo;
 import lombok.RequiredArgsConstructor;
@@ -389,8 +389,8 @@ public class EventServiceImpl implements EventService {
 
     private void updateLocation(Event update, UpdateEventRequest updateRequest) {
         if (updateRequest.getLocation() != null) {
-            if (!(updateRequest.getLocation().getLat().equals(update.getLocation().getLat()) &&
-                    updateRequest.getLocation().getLon().equals(update.getLocation().getLon()))) {
+            if (!(updateRequest.getLocation().getLatitude().equals(update.getLocation().getLatitude()) &&
+                    updateRequest.getLocation().getLongitude().equals(update.getLocation().getLongitude()))) {
                 update.setLocation(saveLocation(updateRequest.getLocation()));
             }
         }

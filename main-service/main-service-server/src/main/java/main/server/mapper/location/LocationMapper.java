@@ -7,6 +7,7 @@ public class LocationMapper {
     public static LocationDto mapModelToDto(Location location) {
         return LocationDto.builder()
                 .locationId(location.getLocationId())
+                .name(location.getName())
                 .longitude(location.getLongitude())
                 .latitude(location.getLatitude())
                 .radius(location.getRadius())

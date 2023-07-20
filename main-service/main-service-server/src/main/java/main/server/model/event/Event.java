@@ -2,6 +2,7 @@ package main.server.model.event;
 
 import main.server.model.category.Category;
 import main.server.model.compilation.Compilation;
+import main.server.model.location.Location;
 import main.server.model.request.Request;
 import main.server.model.user.User;
 import lombok.AccessLevel;

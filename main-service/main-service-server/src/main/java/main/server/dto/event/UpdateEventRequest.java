@@ -3,6 +3,7 @@ package main.server.dto.event;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
+import main.server.dto.location.LocationDto;
 import org.hibernate.validator.constraints.Length;
 
 @Data
