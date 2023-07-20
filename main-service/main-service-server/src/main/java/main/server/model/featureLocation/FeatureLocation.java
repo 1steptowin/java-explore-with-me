@@ -9,7 +9,7 @@ import lombok.experimental.FieldDefaults;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "feature_locations", schema = "public")
+@Table(name = TableAndColumnsNames.tableName, schema = TableAndColumnsNames.defualtSchema)
 @Getter
 @Setter
 @ToString
@@ -17,14 +17,14 @@ import javax.persistence.*;
 public class FeatureLocation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "location_id")
+    @Column(name = TableAndColumnsNames.locationIdColumnName)
     Long locationId;
-    @Column(name = "name")
+    @Column(name = TableAndColumnsNames.nameColumnName)
     String name;
-    @Column(name = "latitude")
+    @Column(name = TableAndColumnsNames.latitudeColumnName)
     Double latitude;
-    @Column(name = "longitude")
+    @Column(name = TableAndColumnsNames.longitudeColumnName)
     Double longitude;
-    @Column(name = "radius")
+    @Column(name = TableAndColumnsNames.radiusColumnName)
     Double radius;
 }
