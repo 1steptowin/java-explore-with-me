@@ -30,6 +30,7 @@ public class FeatureLocationServiceImpl implements FeatureLocationService {
     FeatureLocationRepo locationRepo;
     EventRepo eventRepo;
     StatsClient statsClient;
+
     @Override
     public FeatureLocationDto addLocation(FeatureLocationDto locationDto) {
         return FeatureLocationMapper.mapModelToDto(locationRepo.save(FeatureLocationMapper.mapDtoToModel(locationDto)));
