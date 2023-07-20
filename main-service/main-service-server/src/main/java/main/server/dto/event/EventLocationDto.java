@@ -9,6 +9,6 @@ import lombok.experimental.FieldDefaults;
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class EventLocationDto {
-    Float latitude;
-    Float longitude;
+    Double latitude;
+    Double longitude;
 }

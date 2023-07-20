@@ -20,9 +20,9 @@ public class EventLocation {
     @Column(name = "location_id")
     Long locationId;
     @Column(name = "lat")
-    Float latitude;
+    Double latitude;
     @Column(name = "lon")
-    Float longitude;
+    Double longitude;
     @OneToOne(mappedBy = "location")
     Event event;
 }
