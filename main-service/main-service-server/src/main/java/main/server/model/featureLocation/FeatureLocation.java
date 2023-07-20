@@ -21,9 +21,9 @@ public class FeatureLocation {
     Long locationId;
     @Column(name = "name")
     String name;
-    @Column(name = "lat")
+    @Column(name = "latitude")
     Double latitude;
-    @Column(name = "lon")
+    @Column(name = "longitude")
     Double longitude;
     @Column(name = "radius")
     Double radius;
