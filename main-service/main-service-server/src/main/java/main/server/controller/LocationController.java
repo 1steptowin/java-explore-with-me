@@ -34,7 +34,7 @@ public class LocationController {
     }
 
     @GetMapping(value = PathsConstants.LOCATION_PUBLIC_PATH)
-    public ResponseEntity<EventShortDto> getEventsAroundLocation(@PathVariable("locationId") Long locationId) {
+    public ResponseEntity<List<EventShortDto>> getEventsAroundLocation(@PathVariable("locationId") Long locationId) {
         return ResponseEntity.ok().body(service.getEventsAroundLocation(locationId));
     }
 
