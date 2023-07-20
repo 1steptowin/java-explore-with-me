@@ -13,5 +13,5 @@ public interface LocationService {
 
     List<EventShortDto> getEventsAroundLocation(Long locationId);
 
-    List<EventShortDto> getEventsAroundUserLocation(Long userId, EventLocationDto userLocation, Float radius);
+    List<EventShortDto> getEventsAroundUserLocation(Long userId, EventLocationDto userLocation, Double radius);
 }

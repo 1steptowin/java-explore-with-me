@@ -22,9 +22,9 @@ public class Location {
     @Column(name = "name")
     String name;
     @Column(name = "longitude")
-    Float longitude;
+    Double longitude;
     @Column(name = "latitude")
-    Float latitude;
+    Double latitude;
     @Column(name = "radius")
-    Float radius;
+    Double radius;
 }

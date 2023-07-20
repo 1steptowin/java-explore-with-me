@@ -16,9 +16,9 @@ public class LocationDto {
     @NotBlank
     String name;
     @NotNull
-    Float longitude;
+    Double longitude;
     @NotNull
-    Float latitude;
+    Double latitude;
     @NotNull
-    Float radius;
+    Double radius;
 }

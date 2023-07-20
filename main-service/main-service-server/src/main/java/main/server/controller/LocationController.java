@@ -42,7 +42,7 @@ public class LocationController {
     @GetMapping(value = PathsConstants.LOCATION_PRIVATE_PATH)
     public ResponseEntity<List<EventShortDto>> getEventsAroundUserLocation(@PathVariable("userId") Long userId,
                                                                            @Valid @RequestBody EventLocationDto userLocation,
-                                                                           @RequestParam(name = "radius", required = false, defaultValue = "10") Float radius) {
+                                                                           @RequestParam(name = "radius", required = false, defaultValue = "10") Double radius) {
         return ResponseEntity.ok().body(service.getEventsAroundUserLocation(userId, userLocation, radius));
     }
 }

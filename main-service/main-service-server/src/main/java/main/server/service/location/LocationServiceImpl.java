@@ -54,7 +54,7 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public List<EventShortDto> getEventsAroundUserLocation(Long userId, EventLocationDto userLocation, Float radius) {
+    public List<EventShortDto> getEventsAroundUserLocation(Long userId, EventLocationDto userLocation, Double radius) {
         checkIfUserExists(userId);
         return eventRepo.findEventsAround(userLocation.getLongitude(), userLocation.getLatitude(), radius)
                 .stream()
