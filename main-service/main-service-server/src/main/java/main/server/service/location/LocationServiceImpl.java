@@ -3,6 +3,7 @@ package main.server.service.location;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import main.server.dto.event.EventLocationDto;
 import main.server.dto.event.EventShortDto;
 import main.server.dto.location.LocationDto;
 import main.server.exception.location.LocationNotFoundException;
@@ -53,7 +54,7 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public List<EventShortDto> getEventsAroundUserLocation(Long userId, LocationDto userLocation, Float radius) {
+    public List<EventShortDto> getEventsAroundUserLocation(Long userId, EventLocationDto userLocation, Float radius) {
         checkIfUserExists(userId);
         return eventRepo.findEventsAround(userLocation.getLongitude(), userLocation.getLatitude(), radius)
                 .stream()

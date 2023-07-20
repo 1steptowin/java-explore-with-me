@@ -2,6 +2,7 @@ package main.server.controller;
 
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import main.server.dto.event.EventLocationDto;
 import main.server.dto.event.EventShortDto;
 import main.server.dto.location.LocationDto;
 import main.server.service.location.LocationService;
@@ -40,7 +41,7 @@ public class LocationController {
 
     @GetMapping(value = PathsConstants.LOCATION_PRIVATE_PATH)
     public ResponseEntity<List<EventShortDto>> getEventsAroundUserLocation(@PathVariable("userId") Long userId,
-                                                                           @Valid @RequestBody LocationDto userLocation,
+                                                                           @Valid @RequestBody EventLocationDto userLocation,
                                                                            @RequestParam(name = "radius", required = false, defaultValue = "10") Float radius) {
         return ResponseEntity.ok().body(service.getEventsAroundUserLocation(userId, userLocation, radius));
     }

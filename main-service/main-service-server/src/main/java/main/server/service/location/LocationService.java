@@ -1,5 +1,6 @@
 package main.server.service.location;
 
+import main.server.dto.event.EventLocationDto;
 import main.server.dto.event.EventShortDto;
 import main.server.dto.location.LocationDto;
 
@@ -12,5 +13,5 @@ public interface LocationService {
 
     List<EventShortDto> getEventsAroundLocation(Long locationId);
 
-    List<EventShortDto> getEventsAroundUserLocation(Long userId, LocationDto userLocation, Float radius);
+    List<EventShortDto> getEventsAroundUserLocation(Long userId, EventLocationDto userLocation, Float radius);
 }
