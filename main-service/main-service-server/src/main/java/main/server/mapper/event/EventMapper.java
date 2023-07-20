@@ -6,7 +6,6 @@ import main.server.dto.event.EventDto;
 import main.server.dto.event.EventShortDto;
 import main.server.dto.event.NewEventDto;
 import main.server.mapper.category.CategoryMapper;
-import main.server.mapper.location.LocationMapper;
 import main.server.mapper.user.UserMapper;
 import main.server.model.event.Event;
 import main.server.model.request.Request;
@@ -48,7 +47,7 @@ public class EventMapper {
                 .title(event.getTitle())
                 .views(calculateViewsOfEvent.apply(event.getEventId(), statsClient))
                 .initiator(UserMapper.mapModelToShortDto(event.getInitiator()))
-                .location(LocationMapper.mapModelToDto(event.getLocation()))
+                .location(EventLocationMapper.mapModelToDto(event.getLocation()))
                 .participantLimit(event.getParticipationLimit())
                 .publishedOn(event.getPublishedOn() == null ? "" : event.getPublishedOn().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")))
                 .requestModeration(event.getRequestModeration())
